@@ -48,3 +48,15 @@
 ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
+
+(package! rotate :pin "4e9ac3ff80...")
+
+(package! info-colors)
+
+(package! try)
+
+(package! esh-autosuggest)
+
+(package! fish-completion)
+
+(package! evil-nerd-commenter)
