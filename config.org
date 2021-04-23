@@ -120,7 +120,8 @@
 
     (map! "C-s" #'swiper)
     (map! "M-0" #'treemacs-select-window)
-    (map! "C-M-j" #'+ivy/switch-buffer)
+    (map! "C-M-j" #'+ivy/switch-workspace-buffer)
+    (map! "C-M-k" #'+ivy/switch-buffer)
     (global-set-key [mouse-8] 'better-jumper-jump-backward)
     (global-set-key [mouse-9] 'better-jumper-jump-forward)
 
