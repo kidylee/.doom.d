@@ -60,3 +60,4 @@
 (package! fish-completion)
 
 (package! evil-nerd-commenter)
+

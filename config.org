@@ -217,7 +217,14 @@
 
    #+end_src
 ** comment
+
    #+begin_src elisp
      (use-package! evil-nerd-commenter
        :bind ("M-/" . evilnc-comment-or-uncomment-lines))
+   #+end_src
+
+** treemacs
+
+   #+begin_src elisp
+     (setq doom-themes-treemacs-theme "doom-colors")
    #+end_src
