@@ -1,4 +1,4 @@
-;; [[file:../../../tmp/config.org.ndckzr::*doom emacs init][doom emacs init:1]]
+;; [[file:../../../tmp/config.org.7k0mpl::*doom emacs init][doom emacs init:1]]
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
 ;; Place your private configuration here! Remember, you do not need to run 'doom
@@ -56,7 +56,7 @@
 ;; they are implemented.
 ;; doom emacs init:1 ends here
 
-;; [[file:../../../tmp/config.org.ndckzr::*Simple settings][Simple settings:1]]
+;; [[file:../../../tmp/config.org.7k0mpl::*Simple settings][Simple settings:1]]
 (setq-default
  delete-by-moving-to-trash t                      ; Delete files to trash
  window-combination-resize t                      ; take new window space from all other windows (not just current)
@@ -79,11 +79,11 @@
 (add-hook 'prog-mode-hook 'delete-selection-mode)
 ;; Simple settings:1 ends here
 
-;; [[file:../../../tmp/config.org.ndckzr::*UI][UI:1]]
+;; [[file:../../../tmp/config.org.7k0mpl::*UI][UI:1]]
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 ;; UI:1 ends here
 
-;; [[file:../../../tmp/config.org.ndckzr::*Windows][Windows:1]]
+;; [[file:../../../tmp/config.org.7k0mpl::*Windows][Windows:1]]
 (global-set-key (kbd "C-x 2") (lambda () (interactive) (split-window-below) (other-window 1) (+ivy/switch-buffer)))
 (global-set-key (kbd "C-x 3") (lambda () (interactive) (split-window-right) (other-window 1) (+ivy/switch-buffer)))
 
@@ -105,16 +105,16 @@
              (format (if (buffer-modified-p)  " ◉ %s" "  ●  %s") project-name))))))
 ;; Windows:1 ends here
 
-;; [[file:../../../tmp/config.org.ndckzr::*Hotkeys][Hotkeys:1]]
+;; [[file:../../../tmp/config.org.7k0mpl::*Hotkeys][Hotkeys:1]]
 (map! "C-s" #'swiper)
 (map! "M-0" #'treemacs-select-window)
 (map! "C-M-j" #'+ivy/switch-workspace-buffer)
-(map! "C-M-k" #'+ivy/switch-buffer)
+(map! "C-s-j" #'+ivy/switch-buffer)
 (global-set-key [mouse-8] 'better-jumper-jump-backward)
 (global-set-key [mouse-9] 'better-jumper-jump-forward)
 ;; Hotkeys:1 ends here
 
-;; [[file:../../../tmp/config.org.ndckzr::*Font][Font:1]]
+;; [[file:../../../tmp/config.org.7k0mpl::*Font][Font:1]]
 (setq doom-font (font-spec :family "JetBrains Mono" :size 18)
       doom-big-font (font-spec :family "JetBrains Mono" :size 20)
       doom-variable-pitch-font (font-spec :family "Overpass" :size 18)
@@ -153,7 +153,7 @@
   ";; No missing fonts detected")
 ;; Font:1 ends here
 
-;; [[file:../../../tmp/config.org.ndckzr::*info-colors][info-colors:1]]
+;; [[file:../../../tmp/config.org.7k0mpl::*info-colors][info-colors:1]]
 (use-package! info-colors
   :commands (info-colors-fontify-node))
 
@@ -162,12 +162,12 @@
 (add-hook 'Info-mode-hook #'mixed-pitch-mode)
 ;; info-colors:1 ends here
 
-;; [[file:../../../tmp/config.org.ndckzr::*avy][avy:1]]
+;; [[file:../../../tmp/config.org.7k0mpl::*avy][avy:1]]
 (use-package! avy
   :bind ("M-s" . avy-goto-char))
 ;; avy:1 ends here
 
-;; [[file:../../../tmp/config.org.ndckzr::*paredit][paredit:1]]
+;; [[file:../../../tmp/config.org.7k0mpl::*paredit][paredit:1]]
 (use-package! paredit
   :config
   (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
@@ -181,7 +181,7 @@
   (add-hook 'cider-repl-mode-hook 'paredit-mode))
 ;; paredit:1 ends here
 
-;; [[file:../../../tmp/config.org.ndckzr::*magit][magit:1]]
+;; [[file:../../../tmp/config.org.7k0mpl::*magit][magit:1]]
 (defun ediff-copy-both-to-C ()
   (interactive)
   (ediff-copy-diff ediff-current-difference nil 'C nil
@@ -192,16 +192,21 @@
 (add-hook 'ediff-keymap-setup-hook 'add-d-to-ediff-mode-map)
 ;; magit:1 ends here
 
-;; [[file:../../../tmp/config.org.ndckzr::*eshell][eshell:1]]
+;; [[file:../../../tmp/config.org.7k0mpl::*eshell][eshell:1]]
 (setq-hook! 'eshell-mode-hook esh-autosuggest-mode t)
 (setq-hook! 'eshell-mode-hook fish-completion-mode t)
 ;; eshell:1 ends here
 
-;; [[file:../../../tmp/config.org.ndckzr::*comment][comment:1]]
+;; [[file:../../../tmp/config.org.7k0mpl::*comment][comment:1]]
 (use-package! evil-nerd-commenter
   :bind ("M-/" . evilnc-comment-or-uncomment-lines))
 ;; comment:1 ends here
 
-;; [[file:../../../tmp/config.org.ndckzr::*treemacs][treemacs:1]]
+;; [[file:../../../tmp/config.org.7k0mpl::*treemacs][treemacs:1]]
 (setq doom-themes-treemacs-theme "doom-colors")
 ;; treemacs:1 ends here
+
+;; [[file:../../../tmp/config.org.7k0mpl::*LSP][LSP:1]]
+(after! lsp-mode
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\.shadow-cljs\\'"))
+;; LSP:1 ends here
