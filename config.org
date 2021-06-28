@@ -85,6 +85,7 @@
 
     (delete-selection-mode 1)
     (add-hook 'prog-mode-hook 'delete-selection-mode)
+    (setq save-interprogram-paste-before-kill t)
   #+end_src
 
 * UI
